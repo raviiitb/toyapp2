@@ -1,0 +1,13 @@
+<h1>Superman movies</h1>
+<ol>
+<% sort_by_release_date.each do |movie| %>
+  <h2><li><%= movie['Title'] %></li></h2>
+  <% if movie['Poster'] != 'N/A'%>
+    <p><%= image_tag(movie['Poster'], height: '10%', width: '10%') %></p>
+  <% end %>
+  <b>Release Year </b><%= movie['Year'] %> |
+    <%= link_to 'IMDB', "http://www.imdb.com/title/#{movie['imdbID']}" %>
+  <hr>
+<% end %>
+</ol>
+<h1>Click <%= link_to 'here', root_url %> to go back</h1>
